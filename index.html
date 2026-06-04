@@ -332,9 +332,14 @@
             </div>
         </div>
     </footer>
-<!-- ... Your existing HTML, Form inputs, and Footer are up here ... -->
+<!-- Client Form HTML Structure -->
+    <form id="waiting-list-form">
+      <input type="text" id="name-input" placeholder="Enter your name" required />
+      <input type="email" id="email-input" placeholder="Enter your email" required />
+      <input type="hidden" id="user-type-marker" value="Client" /> 
+      <button type="submit">Join the Waiting List</button>
+    </form>
 
-    <!-- INSERT THE JAVASCRIPT RIGHT HERE -->
     <script>
       const form = document.getElementById('waiting-list-form');
 
@@ -342,7 +347,9 @@
         e.preventDefault(); 
         
         const formData = {
+          name: document.getElementById('name-input').value,
           email: document.getElementById('email-input').value,
+          userType: document.getElementById('user-type-marker').value,
           timestamp: new Date().toISOString()
         };
 
@@ -365,7 +372,6 @@
         }
       });
     </script>
-  </body>
-</html>
+    
 </body>
 </html>
